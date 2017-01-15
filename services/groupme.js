@@ -1,10 +1,10 @@
 let statelessAPI = require('groupme').Stateless;
 
 let services = {
-    receiveMessage: function () {
+    receiveMessage: () => {
 
     },
-    postResponse: function () {
+    postResponse: () => {
         
     }
 };

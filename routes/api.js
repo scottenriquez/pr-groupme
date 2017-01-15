@@ -1,8 +1,11 @@
 let express = require('express');
 let router = express.Router();
+let configuration = require('../services/configuration');
 
-router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
+router.get('/', (request, response, next) => {
+    configuration.getAPIKey().then((token) => {
+        response.send(token);
+    });
 });
 
 module.exports = router;
