@@ -23,6 +23,7 @@ let services = {
     getLatestMessage: () => {
         return new Promise((resolve, reject) => {
             configurationService.getAPIKey().then((token) => {
+                console.log('Token: ' + token);
                 groupmeStatelessAPI.Messages.index(token, TARGET_GROUP_ID, null, (error, response) => {
                     if(error) {
                         reject(error);

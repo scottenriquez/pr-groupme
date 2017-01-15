@@ -3,7 +3,8 @@ let router = express.Router();
 let groupmeService = require('../services/groupme');
 let analyzeService = require('../services/analyze');
 
-router.get('/pleaseRespond', (request, response, next) => {
+router.post('/pleaseRespond', (request, response, next) => {
+    console.log('request: ' + request);
     groupmeService.getLatestMessage().then((messageText) => {
         if(analyzeService.containsPleaseRespond(messageText) || analyzeService.containsPR(messageText)) {
             groupmeService.postResponse().then((messagePostResponse) => {
