@@ -1,8 +1,7 @@
 let groupmeStatelessAPI = require('groupme').Stateless;
 let configurationService = require('./configuration');
 //TODO: export to config
-//const TARGET_GROUP_ID = '27915617';
-const TARGET_GROUP_ID = '27961849';
+const TARGET_GROUP_ID = '27915617';
 const RESPONSE_TEXT = 'NO YOU RESPOND BRO GD WQ CAMPAIGN';
 
 let services = {
@@ -23,7 +22,6 @@ let services = {
     getLatestMessage: () => {
         return new Promise((resolve, reject) => {
             configurationService.getAPIKey().then((token) => {
-                console.log('Token: ' + token);
                 groupmeStatelessAPI.Messages.index(token, TARGET_GROUP_ID, null, (error, response) => {
                     if(error) {
                         reject(error);
