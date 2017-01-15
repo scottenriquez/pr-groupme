@@ -1,10 +1,20 @@
 let express = require('express');
 let router = express.Router();
-let configuration = require('../services/configuration');
+let groupmeService = require('../services/groupme');
+let analyzeService = require('../services/analyze');
 
-router.get('/', (request, response, next) => {
-    configuration.getAPIKey().then((token) => {
-        response.send(token);
+router.get('/pleaseRespond', (request, response, next) => {
+    groupmeService.getLatestMessage().then((messageText) => {
+        if(analyzeService.containsPleaseRespond(messageText) || analyzeService.containsPR(messageText)) {
+            groupmeService.postResponse().then((messagePostResponse) => {
+                response.send(messagePostResponse);
+            });
+        }
+        else {
+            response.send({
+                message: 'No message posted to GroupMe.'
+            })
+        }
     });
 });
 
