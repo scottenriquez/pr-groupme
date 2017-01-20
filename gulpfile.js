@@ -13,7 +13,7 @@ gulp.task('validate', () => {
         .pipe($.jshint.reporter('jshint-stylish', {verbose: true}));
 });
 
-gulp.task('build-dev', () => {
+gulp.task('build-dev', ['validate'], () => {
     let nodeOptions = {
         script: './bin/www',
         delayTime: 1,
