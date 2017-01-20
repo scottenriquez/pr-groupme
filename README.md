@@ -5,7 +5,7 @@ A Node.js, ES6, Express 4 backend for a GroupMe bot to respond to my needy frien
 Presently the <code>configuration</code> service is tightly coupled with DynamoDB. I may make this more modular if there is interest.
 
 # Start Up for Development
-Per Express 4 standards, use <code>nodemon ./bin/www</code>. I will add a Gulp task for this at some point.
+Use <code>gulp build-dev</code>.
 
 # Start Up for Production
 Use <code>npm start</code>.

@@ -13,7 +13,7 @@ router.post('/pleaseRespond', (request, response, next) => {
         else {
             response.send({
                 message: 'No message posted to GroupMe.'
-            })
+            });
         }
     });
 });

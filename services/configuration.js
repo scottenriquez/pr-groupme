@@ -19,7 +19,7 @@ let services = {
                     'AuthID': {
                         'AttributeValueList': [
                             {
-                                'S': "groupme"
+                                'S': 'groupme'
                             }
                         ],
                         'ComparisonOperator' : 'EQ'
